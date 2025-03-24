@@ -1,0 +1,2 @@
+I have chosen a MSP430FR2355 microcontroller.
+It is in the LQFP48 package.
