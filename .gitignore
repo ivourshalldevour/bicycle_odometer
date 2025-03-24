@@ -1,4 +1,11 @@
 # Datasheet for the MSP430FR2355
 datasheet*.pdf
 users_guide*.pdf
+.theia
+.git
+.ccsproject
+.clangd
+.cproject
+.project
+.settings
 

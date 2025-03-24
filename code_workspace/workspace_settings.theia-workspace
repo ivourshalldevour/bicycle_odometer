@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "path": "file:///c%3A/Users/kasia/Desktop/Projects/bicycle_odometer/code"
+    },
+    {
+      "path": ""
+    }
+  ],
+  "settings": {},
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "bicycle_odometer",
+        "type": "ccs-debug",
+        "request": "launch",
+        "projectInfo": {
+          "name": "bicycle_odometer",
+          "resourceId": "/bicycle_odometer"
+        }
+      }
+    ]
+  }
+}
