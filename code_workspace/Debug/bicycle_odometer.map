@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker PC v21.6.1                     
 ******************************************************************************
->> Linked Mon Mar 24 23:15:14 2025
+>> Linked Tue Mar 25 21:26:38 2025
 
 OUTPUT FILE NAME:   <bicycle_odometer.out>
-ENTRY POINT SYMBOL: "_c_int00_noinit_noargs_mpu"  address: 00008074
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs_mpu"  address: 000080dc
 
 
 MEMORY CONFIGURATION
@@ -17,7 +17,7 @@ MEMORY CONFIGURATION
   TLVMEM                00001a00   00000200  00000000  00000200  RWIX
   BOOTCODE              00001c00   00000400  00000000  00000400  RWIX
   RAM                   00002000   00001000  000000a0  00000f60  RWIX
-  FRAM                  00008000   00007f80  00000094  00007eec  RWIX
+  FRAM                  00008000   00007f80  000000fc  00007e84  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
   BSLCONFIGURATIONSIGNA 0000ff88   00000002  00000002  00000000  RWIX  ffff 
@@ -103,16 +103,16 @@ section   page    origin      length       input sections
 
 .const     0    00008000    00000000     UNINITIALIZED
 
-.text      0    00008000    00000074     
-                  00008000    0000003c     FRWP_INIT_LIB_CCS_msp430_large_code_small_data.lib : frwp_init.obj (.text:__mpu_init)
-                  0000803c    0000002e     main.obj (.text:main)
-                  0000806a    00000006     rts430x_lc_sd_eabi.lib : exit.c.obj (.text:abort)
-                  00008070    00000004                            : pre_init.c.obj (.text:_system_pre_init)
+.text      0    00008000    000000dc     
+                  00008000    00000096     main.obj (.text:main)
+                  00008096    0000003c     FRWP_INIT_LIB_CCS_msp430_large_code_small_data.lib : frwp_init.obj (.text:__mpu_init)
+                  000080d2    00000006     rts430x_lc_sd_eabi.lib : exit.c.obj (.text:abort)
+                  000080d8    00000004                            : pre_init.c.obj (.text:_system_pre_init)
 
 .text:_isr 
-*          0    00008074    00000020     
-                  00008074    00000018     rts430x_lc_sd_eabi.lib : boot.c.obj (.text:_isr:_c_int00_noinit_noargs_mpu)
-                  0000808c    00000008                            : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+*          0    000080dc    00000020     
+                  000080dc    00000018     rts430x_lc_sd_eabi.lib : boot.c.obj (.text:_isr:_c_int00_noinit_noargs_mpu)
+                  000080f4    00000008                            : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
 
 .stack     0    00002f60    000000a0     UNINITIALIZED
                   00002f60    00000002     rts430x_lc_sd_eabi.lib : boot.c.obj (.stack)
@@ -224,9 +224,9 @@ MODULE SUMMARY
        Module             code   ro data   rw data
        ------             ----   -------   -------
     .\
-       main.obj           46     0         0      
+       main.obj           150    0         0      
     +--+------------------+------+---------+---------+
-       Total:             46     0         0      
+       Total:             150    0         0      
                                                   
     C:\ti\ccs2010\ccs\ccs_base\msp430\lib\FR2xx\FRWP_INIT_LIB_CCS_msp430_large_code_small_data.lib
        frwp_init.obj      60     0         0      
@@ -267,7 +267,7 @@ MODULE SUMMARY
                                                   
        Stack:             0      0         160    
     +--+------------------+------+---------+---------+
-       Grand Total:       148    50        160    
+       Grand Total:       252    50        160    
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -352,7 +352,7 @@ address   name
 00000672  BAKMEM9                        
 00000673  BAKMEM9_H                      
 00000672  BAKMEM9_L                      
-0000806a  C$$EXIT                        
+000080d2  C$$EXIT                        
 000002ee  CAPTIOCTL                      
 000002ef  CAPTIOCTL_H                    
 000002ee  CAPTIOCTL_L                    
@@ -1186,7 +1186,7 @@ address   name
 00008000  __TI_CINIT_Base                
 00008000  __TI_CINIT_Limit               
 00008000  __TI_CINIT_Warm                
-0000808c  __TI_ISR_TRAP                  
+000080f4  __TI_ISR_TRAP                  
 0000ffce  __TI_int22                     
 0000ffd0  __TI_int23                     
 0000ffd2  __TI_int24                     
@@ -1216,16 +1216,16 @@ ffffffff  __TI_prof_data_size
 ffffffff  __TI_prof_data_start           
 ffffffff  __c_args__                     
 00000001  __mpu_enable                   
-00008000  __mpu_init                     
-00008074  _c_int00_noinit_noargs_mpu     
+00008096  __mpu_init                     
+000080dc  _c_int00_noinit_noargs_mpu     
 0000fffe  _reset_vector                  
 00002f60  _stack                         
-00008070  _system_pre_init               
-0000806a  abort                          
+000080d8  _system_pre_init               
+000080d2  abort                          
 00008000  fram_rw_start                  
 00008000  fram_rx_start                  
 00000001  info_fram_protection           
-0000803c  main                           
+00008000  main                           
 00000001  program_fram_protection        
 00000000  start_protection_offset_address
 
@@ -2150,15 +2150,15 @@ address   name
 00008000  __TI_CINIT_Base                
 00008000  __TI_CINIT_Limit               
 00008000  __TI_CINIT_Warm                
-00008000  __mpu_init                     
 00008000  fram_rw_start                  
 00008000  fram_rx_start                  
-0000803c  main                           
-0000806a  C$$EXIT                        
-0000806a  abort                          
-00008070  _system_pre_init               
-00008074  _c_int00_noinit_noargs_mpu     
-0000808c  __TI_ISR_TRAP                  
+00008000  main                           
+00008096  __mpu_init                     
+000080d2  C$$EXIT                        
+000080d2  abort                          
+000080d8  _system_pre_init               
+000080dc  _c_int00_noinit_noargs_mpu     
+000080f4  __TI_ISR_TRAP                  
 0000ffce  __TI_int22                     
 0000ffd0  __TI_int23                     
 0000ffd2  __TI_int24                     

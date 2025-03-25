@@ -1,2 +1,25 @@
 I have chosen a MSP430FR2355 microcontroller.
 It is in the LQFP48 package.
+
+Regarding the two buttons S1 and S2:
+	When pressed these bring the micrcontroller pin down to LOW.
+	Must enable internal pullup resistors aswell. No external pull
+	resistors on board. Don't use pulldown, since then pressing
+	the button will not cause a change in pin state.
+
+There are 6 GPIO ports
+	P1 P2 P3 ... P6
+	PA PB PC are the exact same physical pins just refered to with
+	16bit instructions. For eg: P1 is the low byte of PA. P2 is the high
+	byte of PA. P3 is low byte of PB.... etc.
+
+When building a project you have two options:
+	compile for debugging. By default makes uC stop at a break point
+	just before first line of main. Waits here for further instruction
+	from debugger.
+	Compile for release. Doesn't wait for anything, meant for final use.
+Notice that even if you build for release, the debug probe will stop supplying
+power to the uC as soon as it makes a USB port connection to your computer.
+Solve this by only pluggin the USB connector in slightly. This way power is
+supplied to everything, not no connection is made, so the debug probe doesn't
+cut power to the uC.
