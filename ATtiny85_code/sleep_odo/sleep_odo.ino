@@ -38,39 +38,51 @@ void setup() {
     GIMSK = 1 << PCIE; // enable pin-change interrupts
     PCMSK = (1 << PCINT4) | (1 << PCINT3); // Mask for only PB3 & PB4
 
+    // setup uC to go into full power-down when SLEEP instruction executed
+    MCUCR |= ((1<<SM0) | (1<<SM1));
+
     sei();    // Enable interrupts in status register
 
-    uint32_t odo_count = 0;
-    EEPROM.put(ODO_ADDR, odo_count);
+    //uint32_t odo_count = 0;
+    //EEPROM.put(ODO_ADDR, odo_count);
 }
 
 void loop() {
     uint32_t odo_count = 0;
 
     if(odo_interrupt) {
-        odo_interrupt = 0;
         // Reed switch from rotating wheel was triggered so increase odo_count
         EEPROM.get(ODO_ADDR, odo_count);
         odo_count++;
         EEPROM.put(ODO_ADDR, odo_count);
+        odo_interrupt = 0;
     }
 
     if(disp_interrupt) {
-        disp_interrupt = 0;
         EEPROM.get(ODO_ADDR, odo_count);   // get how many revolutions wheel has had
         for(uint32_t i=0; i<odo_count; i++) {   // blink LED that many times
             PORTB = PORTB | (1<<PINB0); // set HIGH
-            delay(500);
+            delay(250);
             PORTB = PORTB & ~(1<<PINB0);    // set LOW
-            delay(500);
+            delay(250);
         }
+        disp_interrupt = 0;
     }
+
+    // go to sleep
+    MCUCR |= (1<<SE);   // sleep enable
+    asm("SLEEP");
+
+    // when awoken uC will first execute the ISR that awoke it.
+    // Then will resume here.
+    //MCUCR &= ~(1<<SE);  // clear sleep enable
 }
 
 // Interrupt service routine for a pin change on either PB3 or PB4.
 ISR(PCINT0_vect) {
     // clear pin change interrupt flag
     GIFR = 1 << PCIF; // done by writing a 1 (yes weird).
+    MCUCR &= ~(1<<SE);  // clear sleep enable
 
     // check if PB4 or PB3 caused the interrupt
     if((PINB & (1<<PINB3)) == 0) {    // active low
