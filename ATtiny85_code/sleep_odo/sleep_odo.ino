@@ -14,8 +14,7 @@
 
     Assumes reed switch is hardware debounced with a 1uF capacitor. Fuck me
     this makes it SOOO much simpler. Don't have the brains to do software
-    debouncing on a pin that also needs to (eventaully in future versions)
-    wake the uC from sleep.
+    debouncing on a pin that also needs to wake the uC from sleep.
 */
 
 // Globals used as flags by interrupt service routines
@@ -40,6 +39,10 @@ void setup() {
 
     // setup uC to go into full power-down when SLEEP instruction executed
     MCUCR |= ((1<<SM0) | (1<<SM1));
+
+    // Disable Timer1, USI and ADC
+    PRR = (1<<PRTIM1) | (1<<PRUSI) | (1<< PRADC);
+
 
     sei();    // Enable interrupts in status register
 
@@ -71,12 +74,16 @@ void loop() {
 
     // go to sleep
     MCUCR |= (1<<SE);   // sleep enable
-    asm("SLEEP");
+    __asm__ __volatile__ ("sleep"); // add volatile to make sure it doesnt get compiled away
 
+    PINB |= (1<<PINB0);  // toggle output of LED
     // when awoken uC will first execute the ISR that awoke it.
     // Then will resume here.
-    //MCUCR &= ~(1<<SE);  // clear sleep enable
+    MCUCR &= ~(1<<SE);  // clear sleep enable
 }
+
+
+
 
 // Interrupt service routine for a pin change on either PB3 or PB4.
 ISR(PCINT0_vect) {
