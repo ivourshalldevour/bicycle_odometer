@@ -7,4 +7,6 @@
 .cproject
 .project
 .settings
+eeprom.txt
+low_fuse.txt
 
