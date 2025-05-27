@@ -7,7 +7,7 @@
     times when a button connected to PB4 (pin 3) is pressed.
 
     A rising edge on pin 6 (PCINT1) triggers the wheel revolution count stored
-    in SRAM to be written permanently to EEPROM.
+    in SRAM to be written permanently to EEPROM. Assumes no pull-up on pin6.
 
     Uses default internal 8MHz osc with divide-by-8 prescaler to make 1MHz
     clock signal.
@@ -43,11 +43,13 @@ int main() {
     // Set PB0 (pin 5) as output for LED
     PORTB = PORTB & 0b11111110; // disable pull-up and output LOW
     DDRB = DDRB | (1<<PINB0);   // direction to output
+    // disable pull-up on pin6 PB1
+    PORTB &= 0b11111101;
 
     // clear pin change interrupt flag
     GIFR = 1 << PCIF; // done by writing a 1 (yes weird).
 
-    // Set PB4 and PB3 as pin-change interrupt capable.
+    // Set PB4, PB3 & PB1 as pin-change interrupt capable.
     GIMSK = 1 << PCIE; // enable pin-change interrupts
     PCMSK = (1 << PCINT4) | (1 << PCINT3) | (1 << PCINT1); // Mask for only PB4, PB3 & PB1
 
@@ -61,13 +63,14 @@ int main() {
 
 
     for(;;) {
-        uint32_t odo_count = 0;
         if(odo_interrupt) {
             // Reed switch from rotating wheel was triggered so increase temp_odo
             temp_odo++;
             odo_interrupt = 0;
         }
         if(disp_interrupt) {
+            // display odo_count stored in eeprom
+            uint32_t odo_count;
             eeprom_read_block(&odo_count, ODO_ADDR, 4);  // get how many revolutions wheel has had
             for(uint32_t i=0; i<odo_count; i++) {   // blink LED that many times
                 PORTB = PORTB | (1<<PINB0); // set HIGH
@@ -78,9 +81,11 @@ int main() {
             disp_interrupt = 0;
         }
         if(save_interrupt) {
-            // save to eeprom when pin 6 goes high
+            // save temp_odo to eeprom when pin 6 goes high
+            uint32_t odo_count;
             eeprom_read_block(&odo_count, ODO_ADDR, 4); // read 4 bytes
             odo_count = odo_count + temp_odo;
+            temp_odo = 0;   // clear the tally
             eeprom_write_block(&odo_count, ODO_ADDR, 4);    // write 4 bytes
             save_interrupt = 0;
         }
