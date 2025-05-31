@@ -7,14 +7,15 @@
     times when a button connected to PB4 (pin 3) is pressed.
 
     A rising edge on pin 6 (PCINT1) triggers the wheel revolution count stored
-    in SRAM to be written permanently to EEPROM. Assumes no pull-up on pin6.
+    in SRAM to be written permanently to EEPROM. 
 
     Uses default internal 8MHz osc with divide-by-8 prescaler to make 1MHz
     clock signal.
 
-    Assumes reed switch is hardware debounced with a 1uF capacitor. Fuck me
-    this makes it SOOO much simpler. Don't have the brains to do software
-    debouncing on a pin that also needs to wake the uC from sleep.
+    Assumes reed switch is hardware debounced with a 1uF capacitor. Assumes
+    pin6 is pulled-down by power supply unit digital output. Because it is a
+    digital input from a digital output, no debouncing needed. If using a
+    mechanical switch during testing, make sure to debounce pin6 with cap.
 */
 
 #include <avr/eeprom.h>
@@ -112,12 +113,13 @@ ISR(PCINT0_vect) {
     if((PINB & (1<<PINB3)) == 0) {    // active low
         odo_interrupt = 1;
     }
-    else if((PINB & (1<<PINB4)) == 0) {   // active low
-        disp_interrupt = 1;
-    }
     else if ((PINB & (1<<PINB1)) != 0) {    // active high
         save_interrupt = 1;
     }
+    else if((PINB & (1<<PINB4)) == 0) {   // active low
+        disp_interrupt = 1;
+    }
+    
     // keep in mind that this interrupt routine will be triggered for both
     // rising and falling edges of the signals on PB4, PB3 & PB1. It is
     // assumed the inputs are well debounced and sufficiently long to stay in
