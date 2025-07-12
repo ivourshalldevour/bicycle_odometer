@@ -9,4 +9,5 @@
 .settings
 eeprom.txt
 low_fuse.txt
+high_fuse.txt
 
