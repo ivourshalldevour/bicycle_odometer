@@ -1,4 +1,4 @@
-PORT=/dev/ttyUSB0
+PORT=COM7
 MCU=attiny85
 CFLAGS=-g -Wall -mcall-prologues -mmcu=$(MCU) -Os
 LDFLAGS=-Wl,-gc-sections -Wl,-relax
@@ -18,4 +18,4 @@ clean:
 	$(CC) $(CFLAGS) $(OBJECT_FILES) $(LDFLAGS) -o $@
 
 program: $(TARGET).hex
-	avrdude -p $(MCU) -c arduino -P $(PORT) -b 19200 -U flash:w:$(TARGET).hex
+	avrdude -p $(MCU) -c arduino_as_isp -P $(PORT) -U flash:w:$(TARGET).hex
