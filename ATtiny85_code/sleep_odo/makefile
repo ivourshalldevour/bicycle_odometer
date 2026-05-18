@@ -18,4 +18,4 @@ clean:
 	$(CC) $(CFLAGS) $(OBJECT_FILES) $(LDFLAGS) -o $@
 
 program: $(TARGET).hex
-	avrdude -p $(MCU) -c arduino -P $(PORT) -b 19200 -U flash:w:$(TARGET).hex
+	avrdude -p $(MCU) -c arduino -P $(PORT) -U flash:w:$(TARGET).hex
