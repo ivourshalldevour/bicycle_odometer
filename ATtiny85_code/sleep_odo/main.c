@@ -1,6 +1,6 @@
 /*
-    This code makes the ATtiny85 count rising edges casued by a reed switch
-    connected to PB3 (pin 2). A rising edge triggers an interrrupt which makes
+    This code makes the ATtiny85 count falling edges casued by a reed switch
+    connected to PB3 (pin 2). A falling edge triggers an interrrupt which makes
     the main program loop increase the wheel revolution count in SRAM.
 
     It will display the wheel count by flashing an LED (on pin 5) that many
@@ -64,13 +64,14 @@ int main() {
 
 
     for(;;) {
+        // Reed switch from rotating wheel was triggered so increase temp_odo
         if(odo_interrupt) {
-            // Reed switch from rotating wheel was triggered so increase temp_odo
             temp_odo++;
             odo_interrupt = 0;
         }
+        
+        // display odo_count stored in eeprom
         if(disp_interrupt) {
-            // display odo_count stored in eeprom
             uint32_t odo_count;
             eeprom_read_block(&odo_count, ODO_ADDR, 4);  // get how many revolutions wheel has had
             for(uint32_t i=0; i<odo_count; i++) {   // blink LED that many times
@@ -81,13 +82,16 @@ int main() {
             }
             disp_interrupt = 0;
         }
+        
+        // save temp_odo to eeprom when pin 6 goes high
         if(save_interrupt) {
-            // save temp_odo to eeprom when pin 6 goes high
-            uint32_t odo_count;
-            eeprom_read_block(&odo_count, ODO_ADDR, 4); // read 4 bytes
-            odo_count = odo_count + temp_odo;
-            temp_odo = 0;   // clear the tally
-            eeprom_write_block(&odo_count, ODO_ADDR, 4);    // write 4 bytes
+            if(temp_odo != 0) {    // only save if there are new counts
+                uint32_t odo_count;
+                eeprom_read_block(&odo_count, ODO_ADDR, 4); // read 4 bytes
+                odo_count = odo_count + temp_odo;
+                temp_odo = 0;   // clear the tally
+                eeprom_write_block(&odo_count, ODO_ADDR, 4);    // write 4 bytes
+            }
             save_interrupt = 0;
         }
 

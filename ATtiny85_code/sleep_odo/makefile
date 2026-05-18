@@ -16,6 +16,9 @@ clean:
 
 %.obj: $(OBJECT_FILES)
 	$(CC) $(CFLAGS) $(OBJECT_FILES) $(LDFLAGS) -o $@
+	
+read_mem:
+	avrdude -p $(MCU) -c stk500v1 -P $(PORT) -b 19200 -U eeprom:r:eeprom.txt:h -U lfuse:r:lfuse.txt:h -U hfuse:r:hfuse.txt:h
 
 program: $(TARGET).hex
 	@echo "\e[1;32mIf program failed. Read makefile comment about 10uF cap.\n\e[0m"
