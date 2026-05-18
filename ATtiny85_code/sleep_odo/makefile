@@ -18,4 +18,17 @@ clean:
 	$(CC) $(CFLAGS) $(OBJECT_FILES) $(LDFLAGS) -o $@
 
 program: $(TARGET).hex
-	avrdude -p $(MCU) -c arduino -P $(PORT) -U flash:w:$(TARGET).hex
+	@echo "\e[1;32mIf program failed. Read makefile comment about 10uF cap.\n\e[0m"
+	avrdude -p $(MCU) -c stk500v1 -P $(PORT) -b 19200 -U flash:w:$(TARGET).hex
+
+# This avrdude command is quite temperamental in linux when using an arduino
+# as ISP. If using the "-c arduino" option you must use the 10uF cap between
+# RST and GND on the programmer. This is because the "-c arduino" option
+# includes an extra reset pulse which if not absorbed by the cap, will prevent
+# the arduino programmer from responding. The "-c stk500v1" option is exactly
+# the same but doesn't have this extra reset pulse. In this case, do NOT use
+# the 10uF capacitor.
+
+# Just dont even bother using -c arduinoisp (not working)
+
+# For some reason windows does not have this issue. 
