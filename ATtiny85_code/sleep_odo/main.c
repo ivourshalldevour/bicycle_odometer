@@ -4,7 +4,7 @@
     the main program loop increase the wheel revolution count in SRAM.
 
     It will display the wheel count by flashing an LED (on pin 5) that many
-    times when a button connected to PB4 (pin 3) is pressed.
+    times when a button connected to PB4 (pin 3) is held.
 
     A rising edge on pin 6 (PCINT1) triggers the wheel revolution count stored
     in SRAM to be written permanently to EEPROM. 
@@ -18,13 +18,12 @@
     mechanical switch during testing, make sure to debounce pin6 with cap.
 */
 
+#define F_CPU 1000000UL // used for util/delay.h
 #include <avr/eeprom.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
 #include <util/delay.h>
-
-#define F_CPU 1000000UL // used for util/delay.h
 
 // Globals used as flags by interrupt service routines
 uint8_t odo_interrupt = 0;      // when another wheel revolution happens
@@ -70,11 +69,12 @@ int main() {
             odo_interrupt = 0;
         }
         
-        // display odo_count stored in eeprom
+        // display odo_count stored in eeprom (only while button is held)
         if(disp_interrupt) {
             uint32_t odo_count;
             eeprom_read_block(&odo_count, ODO_ADDR, 4);  // get how many revolutions wheel has had
             for(uint32_t i=0; i<odo_count; i++) {   // blink LED that many times
+                if((PINB & (1<<PINB4)) != 0) break;  // Stop looping if button is released.
                 PORTB = PORTB | (1<<PINB0); // set HIGH
                 _delay_ms(250);
                 PORTB = PORTB & ~(1<<PINB0);    // set LOW

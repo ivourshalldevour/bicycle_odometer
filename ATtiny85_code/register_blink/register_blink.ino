@@ -1,5 +1,5 @@
 /*
-    Blinks an LED on pin 4 of an ATtiny85 PDIP chip. On for 1 second,
+    Blinks an LED on pin 5 of an ATtiny85 PDIP chip. On for 1 second,
     off for one second.
 */
 
