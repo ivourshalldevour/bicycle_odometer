@@ -1,4 +1,0 @@
-(fp_lib_table
-	(version 7)
-	(lib (name "energy_harvest") (type "KiCad") (uri "${KIPRJMOD}/energy_harvest.pretty") (options "") (descr ""))
-)
