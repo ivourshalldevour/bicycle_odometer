@@ -5,6 +5,189 @@
 	(uuid "659e0ea2-023a-42e0-9be6-45dd3e7e972d")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector:Conn_01x02_Socket"
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x02_Socket"
+				(at 0 -5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x02, script generated"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_locked" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Conn_01x02_Socket_1_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy -0.508 0)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy -0.508 -2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -0.508)
+					(mid -0.5058 0)
+					(end 0 0.508)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 0 -3.048)
+					(mid -0.5058 -2.54)
+					(end 0 -2.032)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C_Polarized"
 			(pin_numbers
 				(hide yes)
@@ -1386,197 +1569,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Switch:SW_Reed"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "SW"
-				(at 0 2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_Reed"
-				(at 0 -2.54 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "reed switch"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "reed magnetic switch"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "SW_Reed_0_0"
-				(polyline
-					(pts
-						(xy -2.54 0) (xy 1.27 0.762)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.159 -1.397) (xy 2.286 -1.397)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -2.159 -1.397)
-					(mid -3.55 0)
-					(end -2.159 1.397)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 2.159 1.397)
-					(mid 3.55 0)
-					(end 2.159 -1.397)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.159 1.397) (xy -2.159 1.397)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy -1.27 -0.762)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_Reed_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "new_ivo_lib:AEM10941_board"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -2246,6 +2238,12 @@
 		(uuid "200e9226-378f-4e01-b421-1211bf0c7b3a")
 	)
 	(junction
+		(at 138.43 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "27fb0e22-9846-4923-a24f-9edf73005944")
+	)
+	(junction
 		(at 97.79 138.43)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2262,6 +2260,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "41826c46-0389-47ec-bb95-085a0b7556c1")
+	)
+	(junction
+		(at 134.62 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4203d899-b17b-465c-8df4-f6e405f37055")
+	)
+	(junction
+		(at 36.83 107.95)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4942e56e-e0f3-4560-9feb-67839e6c02fd")
 	)
 	(junction
 		(at 193.04 138.43)
@@ -2361,7 +2371,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 142.24) (xy 137.16 86.36)
+			(xy 134.62 142.24) (xy 134.62 133.35)
 		)
 		(stroke
 			(width 0)
@@ -2388,6 +2398,16 @@
 			(type default)
 		)
 		(uuid "2510e261-3459-41c9-8c98-b36223fa45d4")
+	)
+	(wire
+		(pts
+			(xy 193.04 116.84) (xy 193.04 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "258e86d6-5431-4cdd-8299-d32ece899e48")
 	)
 	(wire
 		(pts
@@ -2471,16 +2491,6 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 121.92) (xy 193.04 124.46)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "472f753c-05e3-44f0-afc0-7f2aaac1421b")
-	)
-	(wire
-		(pts
 			(xy 33.02 100.33) (xy 40.64 100.33)
 		)
 		(stroke
@@ -2531,13 +2541,13 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 107.95) (xy 40.64 107.95)
+			(xy 134.62 133.35) (xy 134.62 86.36)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "54ab6a4d-f476-4911-b719-8d87cd1827cb")
+		(uuid "52263215-2a57-48f0-8388-450c98503b68")
 	)
 	(wire
 		(pts
@@ -2631,7 +2641,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 111.76) (xy 38.1 111.76)
+			(xy 36.83 111.76) (xy 40.64 111.76)
 		)
 		(stroke
 			(width 0)
@@ -2648,16 +2658,6 @@
 			(type default)
 		)
 		(uuid "6f015300-688a-41ef-9f50-31ae0039e59b")
-	)
-	(wire
-		(pts
-			(xy 36.83 96.52) (xy 36.83 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "75eb0193-f6b3-43cc-8674-0b1a1b5f2665")
 	)
 	(wire
 		(pts
@@ -2678,6 +2678,16 @@
 			(type default)
 		)
 		(uuid "793eba31-a3ad-4183-9e31-4c377a01781b")
+	)
+	(wire
+		(pts
+			(xy 36.83 96.52) (xy 36.83 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d5df090-032e-4d37-b2c1-b75103e25873")
 	)
 	(wire
 		(pts
@@ -2711,7 +2721,17 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 138.43) (xy 154.94 138.43)
+			(xy 36.83 107.95) (xy 40.64 107.95)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "89b4b0aa-dcee-4c46-9855-977a02f9d706")
+	)
+	(wire
+		(pts
+			(xy 97.79 138.43) (xy 138.43 138.43)
 		)
 		(stroke
 			(width 0)
@@ -2861,7 +2881,7 @@
 	)
 	(wire
 		(pts
-			(xy 72.39 142.24) (xy 137.16 142.24)
+			(xy 72.39 142.24) (xy 134.62 142.24)
 		)
 		(stroke
 			(width 0)
@@ -2921,16 +2941,6 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 111.76) (xy 38.1 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c7879284-9c2e-44f7-94c9-812c3a2445f9")
-	)
-	(wire
-		(pts
 			(xy 87.63 107.95) (xy 87.63 104.14)
 		)
 		(stroke
@@ -2948,16 +2958,6 @@
 			(type default)
 		)
 		(uuid "ca6a4b0e-fe04-4462-9e79-ff5cc02217df")
-	)
-	(wire
-		(pts
-			(xy 36.83 88.9) (xy 40.64 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ce3ded94-5290-4431-a5e6-406b69ae316d")
 	)
 	(wire
 		(pts
@@ -3011,7 +3011,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 86.36) (xy 154.94 86.36)
+			(xy 134.62 86.36) (xy 154.94 86.36)
 		)
 		(stroke
 			(width 0)
@@ -3061,6 +3061,36 @@
 	)
 	(wire
 		(pts
+			(xy 193.04 105.41) (xy 193.04 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9845b5d-c035-4d64-9c69-15977c773d77")
+	)
+	(wire
+		(pts
+			(xy 134.62 133.35) (xy 138.43 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ed73acb9-7a6d-4681-a028-ca883f189762")
+	)
+	(wire
+		(pts
+			(xy 138.43 138.43) (xy 154.94 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f3265f1d-b974-47d0-80a8-2ce00bc62ed4")
+	)
+	(wire
+		(pts
 			(xy 68.58 69.85) (xy 68.58 74.93)
 		)
 		(stroke
@@ -3071,6 +3101,16 @@
 	)
 	(wire
 		(pts
+			(xy 36.83 107.95) (xy 36.83 111.76)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fbc4c507-8742-43c2-8a30-01171cd91940")
+	)
+	(wire
+		(pts
 			(xy 207.01 113.03) (xy 207.01 118.11)
 		)
 		(stroke
@@ -3078,16 +3118,6 @@
 			(type default)
 		)
 		(uuid "fce5f73b-77b1-404f-9cae-53c896dac45f")
-	)
-	(wire
-		(pts
-			(xy 193.04 105.41) (xy 193.04 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fd4fbd1d-0b84-461a-a643-f2feee0b5c1e")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3123,7 +3153,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 191.262 128.27 90)
 			(hide yes)
 			(show_name no)
@@ -3205,7 +3235,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Diode_THT:D_A-405_P2.54mm_Vertical_AnodeUp"
 			(at 207.01 109.22 0)
 			(hide yes)
 			(show_name no)
@@ -3248,6 +3278,169 @@
 			(project "ATtiny_board"
 				(path "/659e0ea2-023a-42e0-9be6-45dd3e7e972d"
 					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Conn_01x02_Socket")
+		(at 198.12 114.3 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "1aed7705-3cfc-4c4b-9d89-d99138ef8e1e")
+		(property "Reference" "J1"
+			(at 199.39 115.57 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "To reedswitch"
+			(at 190.246 110.998 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
+			(at 198.12 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 198.12 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated"
+			(at 198.12 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c0f254a4-b298-4220-ae95-9e3be2c1784d")
+		)
+		(pin "1"
+			(uuid "d9e16022-8172-47d9-b813-6abe02f93145")
+		)
+		(instances
+			(project "ATtiny_board"
+				(path "/659e0ea2-023a-42e0-9be6-45dd3e7e972d"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 138.43 135.89 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "40040dbc-b47b-4ac0-9c39-6849e12cade2")
+		(property "Reference" "C3"
+			(at 140.97 134.6262 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0.1μF"
+			(at 140.97 137.1662 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
+			(at 138.43 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 138.43 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 138.43 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "788a05ac-aa1b-4bed-85cc-c129090d246d")
+		)
+		(pin "1"
+			(uuid "f1046fd7-af34-44b7-87fc-bf66bae6fd6f")
+		)
+		(instances
+			(project "ATtiny_board"
+				(path "/659e0ea2-023a-42e0-9be6-45dd3e7e972d"
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -3555,7 +3748,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "ivo_lib:KXOB25-05X3F"
 			(at 61.214 58.42 90)
 			(hide yes)
 			(show_name no)
@@ -3636,7 +3829,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 179.07 124.46 0)
 			(hide yes)
 			(show_name no)
@@ -3718,7 +3911,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm"
 			(at 181.61 116.84 0)
 			(hide yes)
 			(show_name no)
@@ -3800,7 +3993,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "ivo_lib:1FSuperCap"
 			(at 98.7552 127 0)
 			(hide yes)
 			(show_name no)
@@ -3882,7 +4075,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
 			(at 205.232 121.92 90)
 			(hide yes)
 			(show_name no)
@@ -3930,85 +4123,48 @@
 			)
 		)
 	)
-	(symbol
-		(lib_id "Switch:SW_Reed")
-		(at 193.04 116.84 90)
-		(unit 1)
-		(body_style 1)
+	(sheet
+		(at 212.09 64.77)
+		(size 25.4 15.24)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "ff207592-1f2c-4a7d-b286-54fdfa4b1208")
-		(property "Reference" "SW1"
-			(at 195.58 116.8399 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(face "KiCad Font")
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
+		(stroke
+			(width 0.1524)
+			(type solid)
 		)
-		(property "Value" ""
-			(at 195.58 118.1099 90)
-			(show_name no)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "85fab1d5-9d3f-4bde-a688-843261a50eb5")
+		(property "Sheetname" "Reed Switch"
+			(at 212.09 64.0584 0)
+			(show_name yes)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left bottom)
 			)
 		)
-		(property "Footprint" ""
-			(at 193.04 116.84 0)
-			(hide yes)
+		(property "Sheetfile" "untitled.kicad_sch"
+			(at 212.09 80.5946 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left top)
 			)
-		)
-		(property "Datasheet" ""
-			(at 193.04 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "reed switch"
-			(at 193.04 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "adecb949-e764-4c1f-933b-6eadd3074816")
-		)
-		(pin "1"
-			(uuid "58c9f072-9229-4727-819f-e294e5093d0b")
 		)
 		(instances
 			(project "ATtiny_board"
 				(path "/659e0ea2-023a-42e0-9be6-45dd3e7e972d"
-					(reference "SW1")
-					(unit 1)
+					(page "2")
 				)
 			)
 		)

@@ -660,13 +660,17 @@
         "uuid": "659e0ea2-023a-42e0-9be6-45dd3e7e972d"
       }
     ],
-    "used_designators": "SW1-2,R1-2,SC1,D1,C1-2,U1-2",
+    "used_designators": "J1-2,SW1-2,R1-2,SC1,D1,C1-3,U1-2",
     "variants": []
   },
   "sheets": [
     [
       "659e0ea2-023a-42e0-9be6-45dd3e7e972d",
       "Root"
+    ],
+    [
+      "85fab1d5-9d3f-4bde-a688-843261a50eb5",
+      "Reed Switch"
     ]
   ],
   "text_variables": {},
