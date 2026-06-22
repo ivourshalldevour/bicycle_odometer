@@ -4,7 +4,7 @@
     the main program loop increase the wheel revolution count in SRAM.
 
     It will display the wheel count by flashing an LED (on pin 5) that many
-    times when a button connected to PB4 (pin 3) is held.
+    times when a button connected to PB4 (pin 3) is pressed.
 
     A rising edge on pin 6 (PCINT1) triggers the wheel revolution count stored
     in SRAM to be written permanently to EEPROM. 
@@ -73,7 +73,7 @@ int main() {
         }
         
         
-        // display odo_count stored in eeprom (only while button is held)
+        // display odo_count stored in eeprom
         if(disp_interrupt) {
             uint32_t odo_count;
             eeprom_read_block(&odo_count, ODO_ADDR, 4);  // get wheel revs
@@ -83,7 +83,9 @@ int main() {
             // now blink LED that many times as each BCD digit.
             uint8_t i = 0;
             uint8_t j = 0;
-            /*for(i=0; i<10; i++) {
+            /*
+            	// blinks in BCD but doesnt skip leading zeros
+            for(i=0; i<10; i++) {
                 uint8_t blink_times = bcd[i];
                 if(blink_times == 0) {
                     PORTB = PORTB | (1<<PINB0); // on
@@ -99,10 +101,11 @@ int main() {
                 }
                 _delay_ms(250); // delay between digits
             }*/
+            // blinks in BCD, skipping leading zeros
             while((i<10) && (bcd[i] == 0)) i++; // go to first non-zero digit
             if(i==10) { // all digits were zero. Still need to display 0.
                 PORTB = PORTB | (1<<PINB0); // on
-                _delay_ms(750);
+                _delay_ms(1000);
                 PORTB = PORTB & ~(1<<PINB0);    // off
             }
             while(i<10) {   // blink for all digits onwards
@@ -122,8 +125,10 @@ int main() {
                 _delay_ms(500); //delay between digits
                 i++;
             }
-
-            /*for(uint32_t i=0; i<odo_count; i++) {   // blink LED that many times
+			
+            /*
+            // blinks LED the raw ammount of times stored in odo_count (only while button held)
+            for(uint32_t i=0; i<odo_count; i++) {   // blink LED that many times
                 if((PINB & (1<<PINB4)) != 0) break;  // Stop looping if button is released.
                 PORTB = PORTB | (1<<PINB0); // set HIGH
                 _delay_ms(250);
