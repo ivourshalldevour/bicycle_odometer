@@ -3,6 +3,7 @@
 *.hex
 *.o
 .git
+.history
 .ccsproject
 .clangd
 .cproject
