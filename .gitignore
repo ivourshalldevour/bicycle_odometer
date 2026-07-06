@@ -1,6 +1,7 @@
 *.pdf
 .theia
 *.hex
+*.o
 .git
 .ccsproject
 .clangd
