@@ -16,7 +16,14 @@ clean:
 
 %.obj: $(OBJECT_FILES)
 	$(CC) $(CFLAGS) $(OBJECT_FILES) $(LDFLAGS) -o $@
+
+fuse:
+	# Write Low fuse (internal 8MHz osc, start-up delay 14ck)
+	avrdude -p $(MCU) -c stk500v1 -P $(PORT) -b 19200 -U lfuse:w:0x42:m
 	
+	# Write High fuse (BOD disabled, preserve EEPROM, SPI program download enabled)
+	avrdude -p $(MCU) -c stk500v1 -P $(PORT) -b 19200 -U hfuse:w:0xd7:m
+
 read_mem:
 	avrdude -p $(MCU) -c stk500v1 -P $(PORT) -b 19200 -U eeprom:r:eeprom.txt:h -U lfuse:r:lfuse.txt:h -U hfuse:r:hfuse.txt:h
 
