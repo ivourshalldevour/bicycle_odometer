@@ -1,0 +1,8 @@
+https://github.com/macsleep/odometer/blob/master/odometer.c#L313
+
+Have a look at this project^^^^.
+
+It uses a cool way of wear leveling in the eeprom. It also doesn't have any ener
+gy storage and is powered by an AC wheel hub generator. The counting is done
+from counting AC halfwaves of the generator output before it gets rectified into
+DC supply for the chip. Also uses an ATtiny85.
